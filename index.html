@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="Bright Future Academy admission assistant demo.">
+  <title>Bright Future Academy | Chat Assistant</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="school-icon" aria-hidden="true">🏫</div>
+      <div class="school-info">
+        <h1>Bright Future Academy</h1>
+        <p><span class="status-dot"></span> Admission Assistant · Demo</p>
+      </div>
+      <button id="clearChat" class="icon-button" type="button"
+        aria-label="Clear conversation" title="Clear conversation">↻</button>
+    </header>
+
+    <section class="welcome">
+      <span class="welcome-tag">WELCOME</span>
+      <h2>How can we help you?</h2>
+      <p>Ask us about admissions, classes, school timings or fees.</p>
+    </section>
+
+    <section id="messages" class="messages" aria-live="polite"
+      aria-label="Chat messages">
+      <div class="message-row bot-row">
+        <div class="avatar" aria-hidden="true">🏫</div>
+        <div class="message bot">
+          <div class="message-text">Assalam-o-Alaikum! Welcome to Bright Future Academy. Aap admission, classes, timing ya fee ke bare mein sawal pooch sakte hain.</div>
+          <time class="message-time"></time>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-section" aria-label="Suggested questions">
+      <p class="section-label">QUICK QUESTIONS</p>
+      <div class="quick-questions">
+        <button type="button" class="quick-btn"
+          data-question="Kin classes mein admission hota hai?">🎓 Admission</button>
+        <button type="button" class="quick-btn"
+          data-question="Fee kitni hai?">💰 Fee</button>
+        <button type="button" class="quick-btn"
+          data-question="School ki timing kya hai?">🕒 School Timing</button>
+        <button type="button" class="quick-btn"
+          data-question="School se contact kaise karein?">☎️ Contact</button>
+      </div>
+    </section>
+
+    <form id="chatForm" class="chat-form">
+      <label class="sr-only" for="question">Your question</label>
+      <input id="question" name="question" type="text"
+        placeholder="Apna sawal likhein..." autocomplete="off"
+        maxlength="300" required>
+      <button id="sendButton" type="submit" aria-label="Send message">
+        Send <span aria-hidden="true">➤</span>
+      </button>
+    </form>
+
+    <footer class="footer">
+      <span>●</span> Practice demo · Answers use predefined information
+    </footer>
+  </main>
+</body>
+</html>
