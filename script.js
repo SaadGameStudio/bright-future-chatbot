@@ -134,7 +134,7 @@ function showTypingAnswer(question) {
     setBusy(false);
     input.focus();
     replyTimer = null;
-  }, 600);
+  }, 3000);
 }
 
 form.addEventListener("submit", function(event) {
