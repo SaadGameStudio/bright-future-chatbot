@@ -17,31 +17,38 @@ let isReplying = false;
 function getAnswer(text) {
   const q = text.toLowerCase().trim();
 
-  if (/fee|fees|فیس|monthly|tuition|charges/.test(q)) {
-    return "Fee abhi confirm nahi hai. Barah-e-karam school office se maloom karein.";
+  // Fee information
+  if (/\b(fee|fees|monthly fee|tuition|charges|فیس)\b/.test(q)) {
+    return "Fee abhi confirm nahi hai. Barah-e-karam exact fee ke liye school office se rabta karein.";
   }
 
-  if (/sunday|saturday|haft|holiday|chhutti|چھٹی/.test(q)) {
-    return "Chhuttiyon aur weekend ke schedule ki maloomat available nahi. School office se confirm karein.";
+  // Weekend and holidays
+  if (/\b(sunday|saturday|weekend|holiday|chhutti|hafta)\b/.test(q)) {
+    return "Weekend aur chhuttiyon ka schedule abhi available nahi hai. Barah-e-karam school office se confirm karein.";
   }
 
-  if (/timing|time|waqt|kitne baje|khulta|band hota|schedule/.test(q)) {
-    return "School ki timing subah 8 baje se dopahar 1 baje tak hai.";
+  // School timing
+  if (/\b(timing|time|waqt|kitne baje|khulta|band hota|schedule)\b/.test(q)) {
+    return "Bright Future Academy ki school timing subah 8 baje se dopahar 1 baje tak hai.";
   }
 
-  if (/admission|dakhla|class|classes|grade|کلاس|داخلہ/.test(q)) {
-    return "Bright Future Academy mein Class 1 se Class 10 tak admission hota hai.";
+  // Classes and admission
+  if (/\b(admission|dakhla|class|classes|grade|admit)\b/.test(q)) {
+    return "Bright Future Academy mein Class 1 se Class 10 tak admissions ki maloomat mil sakti hai. Mazeed tafseel ke liye school office se rabta karein.";
   }
 
-  if (/contact|rabta|phone|number|office|رابطہ/.test(q)) {
-    return "Mazeed maloomat ke liye school office se rabta karein. Phone number abhi available nahi hai.";
+  // Contact information
+  if (/\b(contact|rabta|phone|number|office|call)\b/.test(q)) {
+    return "School se rabtay ke liye office visit karein ya school office se contact details confirm karein. Phone number abhi available nahi hai.";
   }
 
+  // Greeting
   if (/\b(salam|assalam|hello|hi|hey)\b/.test(q)) {
-    return "Wa-Alaikum-Assalam! Aap admission, classes, timing ya fee ke bare mein pooch sakte hain.";
+    return "Wa-Alaikum-Assalam! Aap admission, classes, school timing, fee ya contact ke bare mein pooch sakte hain.";
   }
 
-  return "Maazrat, is sawal ki maloomat mere paas nahi hai. Barah-e-karam school office se confirm karein.";
+  // Unknown questions
+  return "Maazrat, is sawal ki confirmed maloomat mere paas nahi hai. Barah-e-karam school office se confirm karein.";
 }
 
 function getCurrentTime() {
