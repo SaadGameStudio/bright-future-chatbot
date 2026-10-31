@@ -417,32 +417,126 @@ footer {
   min-height: 30px;
   padding: 8px 12px;
 }
-
 .typing-indicator span {
   display: block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: #63c7ff;
-  animation: typingBounce 0.8s infinite ease-in-out;
+  opacity: 0.65;
+  animation: none !important;
+}
+/* Stable typing dots — no animation */
+.typing-indicator span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #63c7ff;
+  opacity: 0.65;
+  animation: none !important;
+  transform: none !important;
+}
+/* ===== Contact Form ===== */
+
+.contact-section {
+  margin-top: 24px;
+  padding: 22px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 }
 
-.typing-indicator span:nth-child(2) {
-  animation-delay: 0.15s;
+.contact-section h2 {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 21px;
 }
 
-.typing-indicator span:nth-child(3) {
-  animation-delay: 0.3s;
+.contact-section > p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-@keyframes typingBounce {
-  0%, 60%, 100% {
-    transform: translateY(0);
-    opacity: 0.45;
+.contact-form {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 13px 14px;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.contact-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(99, 199, 255, .12);
+}
+
+.contact-submit {
+  padding: 13px 18px;
+  color: var(--cyan);
+  background: transparent;
+  border: 1px solid var(--cyan);
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .25s, color .25s, transform .2s;
+}
+
+.contact-submit:hover {
+  color: var(--bg);
+  background: var(--cyan);
+}
+
+.contact-submit:active {
+  transform: scale(.97);
+}
+
+.contact-submit:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+#contactStatus {
+  min-height: 20px;
+  color: var(--cyan);
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 16px;
   }
 
-  30% {
-    transform: translateY(-5px);
-    opacity: 1;
+  .contact-section h2 {
+    font-size: 19px;
   }
 }
+

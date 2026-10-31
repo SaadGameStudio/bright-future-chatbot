@@ -141,7 +141,7 @@ function showTypingAnswer(question) {
     setBusy(false);
     input.focus();
     replyTimer = null;
-  }, 3000);
+  }, 1200);
 }
 
 form.addEventListener("submit", function(event) {
@@ -180,3 +180,24 @@ clearButton.addEventListener("click", function() {
   input.value = "";
   input.focus();
 });
+
+// ===== Contact Form Functionality =====
+
+const contactForm = document.getElementById("contactForm");
+const contactStatus = document.getElementById("contactStatus");
+
+if (contactForm && contactStatus) {
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    contactStatus.textContent =
+      "Demo submission successful! Real messages receive karne ke liye school backend connect karna hoga.";
+
+    contactForm.reset();
+  });
+}
